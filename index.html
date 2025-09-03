@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: url('Imágenes/saludmujer.jpg') no-repeat center center fixed;
+      background: url('imagenes/saludmujer.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       line-height: 1.6;
@@ -220,7 +220,7 @@
     <section id="anticonceptivos">
       <h2>Métodos anticonceptivos</h2>
       <p>Como profesionales en salud femenina, te explicamos todas las opciones: pastillas, DIU, implantes, condones, métodos naturales y más. Cada método tiene indicaciones específicas según tu salud y necesidades.</p>
-      <img src="Imágenes/metodos.jpg" alt="Métodos anticonceptivos" />
+      <img src="imagenes/metodos.jpg" alt="Métodos anticonceptivos" />
       <ul>
         <li><i class="fas fa-check-circle"></i> Pastillas hormonales y combinadas</li>
         <li><i class="fas fa-check-circle"></i> DIU de cobre y hormonal</li>
@@ -233,7 +233,7 @@
     <section id="ciclo">
       <h2>Ciclo menstrual</h2>
       <p>Comprender tu ciclo es clave para tu bienestar. Identifica fases, signos de alerta y cómo cuidarte en cada etapa.</p>
-      <img src="Imágenes/ciclo.jpg" alt="Ciclo menstrual" />
+      <img src="imagenes/ciclo.jpg" alt="Ciclo menstrual" />
       <ul>
         <li><i class="fas fa-dot-circle"></i> Fase folicular: preparación del cuerpo para la ovulación</li>
         <li><i class="fas fa-dot-circle"></i> Ovulación: momento de fertilidad máxima</li>
@@ -245,7 +245,7 @@
     <section id="sexualidad">
       <h2>Salud sexual y reproductiva</h2>
       <p>Promovemos prácticas seguras, prevención de ITS y planificación familiar según recomendaciones médicas.</p>
-      <img src="Imágenes/saludsexual.jpg" alt="Salud sexual y reproductiva" />
+      <img src="imagenes/saludsexual.jpg" alt="Salud sexual y reproductiva" />
       <ul>
         <li><i class="fas fa-shield-alt"></i> Prevención y diagnóstico de ITS</li>
         <li><i class="fas fa-stethoscope"></i> Chequeos ginecológicos periódicos</li>
@@ -257,7 +257,7 @@
     <section id="emocional">
       <h2>Apoyo emocional y autocuidado</h2>
       <p>El bienestar emocional es esencial. Brindamos recursos de contención, técnicas de autocuidado y orientación profesional.</p>
-      <img src="Imágenes/autocuidado.jpg" alt="Apoyo emocional y autocuidado" />
+      <img src="imagenes/autocuidado.jpg" alt="Apoyo emocional y autocuidado" />
       <ul>
         <li><i class="fas fa-brain"></i> Terapia y contención emocional</li>
         <li><i class="fas fa-spa"></i> Gestión del estrés y ansiedad</li>
@@ -281,7 +281,7 @@
 
       <h3>Uso de Misoprostol (Cytotec)</h3>
       <p>El misoprostol es un medicamento utilizado en ginecología y obstetricia. Su uso debe ser supervisado por profesionales de la salud.</p>
-      <img id="sliderImg" src="Imágenes/miso02.jpg" alt="Imagen Misoprostol" />
+      <img id="sliderImg" src="imagenes/miso02.jpg" alt="Imagen Misoprostol" />
       <ul>
         <li><i class="fas fa-file-pdf"></i> <a href="https://iris.who.int/bitstream/handle/10665/134747/9789243548715_spa.pdf" target="_blank">OMS: Aborto seguro</a></li>
         <li><i class="fas fa-file-pdf"></i> <a href="https://uchile.cl/noticias/110763/aborto-informarse-sobre-el-misoprostol-puede-salvar-vida-de-mujeres" target="_blank">U. de Chile: Informarse sobre Misoprostol</a></li>
@@ -302,60 +302,22 @@
     <a href="https://www.linkedin.com/in/asesoria-salud-y-bienestar-889001381" target="_blank" class="btn-li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 
-  <!-- WhatsApp con lista y emojis -->
-  <a href="https://wa.me/56920765024?text=Hola%20👋%0A%0AMe%20gustaría%20recibir%20información%20sobre%20su%20asesoría.%20Por%20favor%20indique%20el%20*Número*%20de%20la%20opción%20que%20le%20interesa:%0A%0A1.%20💊%20Anticonceptivos%0A2.%20📅%20Ciclo%20menstrual%0A3.%20❤️%20Salud%20sexual%0A4.%20🌿%20Apoyo%20emocional%0A5.%20⚖️%20Aborto%20seguro" 
-     target="_blank" class="whatsapp-float" title="Chatea con nosotros en WhatsApp">
-     <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/56920765024?text=Hola%20👋%0A%0AMe%20gustaría%20recibir%20información%20sobre%20su%20asesoría.%20Por%20favor%20indique%20el%20*Número*%20de%20la%20opción%20que%20le%20interesa:%0A%0A1.%20💊%20Anticonceptivos%0A2.%20📅%20Ciclo%20menstrual%0A3.%20❤️%20Salud%20sexual%20y%20reproductiva%0A4.%20🧘%20Apoyo%20emocional%0A5.%20🩺%20Aborto%20seguro" target="_blank" class="whatsapp-float" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
   <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-    const links = sidebar.querySelectorAll("a");
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-    menuBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
-      menuBtn.classList.toggle("hidden");
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
     });
-    overlay.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-      overlay.classList.remove("active");
-      menuBtn.classList.remove("hidden");
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
     });
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-        menuBtn.classList.remove("hidden");
-      });
-    });
-
-    // Animación al hacer scroll
-    const sections = document.querySelectorAll("section");
-    const options = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-    sections.forEach(section => { observer.observe(section); });
-
-    // Slider de imágenes en aborto
-    const sliderImg = document.getElementById("sliderImg");
-    const images = ["Imágenes/miso02.jpg", "Imágenes/miso03.jpg"];
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % images.length;
-      sliderImg.src = images[index];
-    }, 4000);
   </script>
 </body>
 </html>
-
 
