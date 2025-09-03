@@ -305,24 +305,34 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const menuLinks = sidebar.querySelectorAll('a'); // selecciona todos los enlaces del menú
 
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-      menuBtn.classList.toggle('hidden');
-    });
+  // Abrir/cerrar menú al hacer clic en el botón
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+    menuBtn.classList.toggle('hidden');
+  });
 
-    overlay.addEventListener('click', () => {
+  // Cerrar menú al hacer clic en el overlay
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    menuBtn.classList.remove('hidden');
+  });
+
+  // Cerrar menú al hacer clic en cualquier enlace del menú
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
       menuBtn.classList.remove('hidden');
     });
-  </script>
-</body>
-</html>
+  });
+</script>
 
 
