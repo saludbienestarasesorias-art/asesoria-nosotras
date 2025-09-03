@@ -30,13 +30,13 @@
       color: white;
       position: fixed;
       top: 0;
-      left: -220px;
+      left: -220px; /* oculto por defecto */
       padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       z-index: 1000;
-      transition: left 0.3s;
+      transition: left 0.3s ease;
     }
     nav.active { left: 0; }
     nav a { 
@@ -44,13 +44,20 @@
       text-decoration: none; 
       margin: 12px 0; 
       font-weight: bold; 
-      transition:0.3s; 
       font-size: 0.95rem;
     }
     nav a:hover { color: #ffd6e0; margin-left: 5px; }
     .menu-title { font-size:1.3rem; margin-bottom:15px; font-weight:bold; border-bottom:2px solid white; padding-bottom:8px; width:100%; }
 
-    .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); display:none; z-index:999; }
+    /* FONDO OSCURO CUANDO SE ABRE */
+    .overlay { 
+      position:fixed; 
+      top:0; left:0; 
+      width:100%; height:100%; 
+      background: rgba(0,0,0,0.4); 
+      display:none; 
+      z-index: 900; 
+    }
     .overlay.active { display:block; }
 
     /* --- HEADER --- */
@@ -196,8 +203,7 @@
       cursor:pointer; 
       border-radius:5px; 
       padding:6px 12px; 
-      z-index:1102; 
-      transition:0.3s; 
+      z-index: 1101; /* SIEMPRE ARRIBA */
     }
 
     /* --- BOTONES SOCIALES --- */
@@ -241,8 +247,78 @@
       <div class="separator"><i class="fas fa-heart"></i></div>
     </header>
 
-    <!-- tus secciones (idénticas a las que tenías) -->
-    <!-- ... -->
+    <section id="anticonceptivos">
+      <h2>Métodos anticonceptivos</h2>
+      <p>Como profesionales en salud femenina, te explicamos todas las opciones: pastillas, DIU, implantes, condones, métodos naturales y más.</p>
+      <img src="imagenes/metodos.jpg" alt="Métodos anticonceptivos" />
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Pastillas hormonales y combinadas</li>
+        <li><i class="fas fa-check-circle"></i> DIU de cobre y hormonal</li>
+        <li><i class="fas fa-check-circle"></i> Implantes subdérmicos</li>
+        <li><i class="fas fa-check-circle"></i> Condones masculinos y femeninos</li>
+        <li><i class="fas fa-check-circle"></i> Métodos naturales y planificación familiar consciente</li>
+      </ul>
+    </section>
+
+    <section id="ciclo">
+      <h2>Ciclo menstrual</h2>
+      <p>Comprender tu ciclo es clave para tu bienestar. Identifica fases, signos de alerta y cómo cuidarte en cada etapa.</p>
+      <img src="imagenes/ciclo.jpg" alt="Ciclo menstrual" />
+      <ul>
+        <li><i class="fas fa-dot-circle"></i> Fase folicular: preparación del cuerpo para la ovulación</li>
+        <li><i class="fas fa-dot-circle"></i> Ovulación: momento de fertilidad máxima</li>
+        <li><i class="fas fa-dot-circle"></i> Fase lútea: preparación del endometrio y cambios hormonales</li>
+        <li><i class="fas fa-dot-circle"></i> Manejo de síntomas: dolor, cambios emocionales y flujo</li>
+      </ul>
+    </section>
+
+    <section id="sexualidad">
+      <h2>Salud sexual y reproductiva</h2>
+      <p>Promovemos prácticas seguras, prevención de ITS y planificación familiar según recomendaciones médicas.</p>
+      <img src="imagenes/saludsexual.jpg" alt="Salud sexual y reproductiva" />
+      <ul>
+        <li><i class="fas fa-shield-alt"></i> Prevención y diagnóstico de ITS</li>
+        <li><i class="fas fa-stethoscope"></i> Chequeos ginecológicos periódicos</li>
+        <li><i class="fas fa-book-reader"></i> Educación sexual integral</li>
+        <li><i class="fas fa-heart"></i> Planificación familiar y métodos anticonceptivos</li>
+      </ul>
+    </section>
+
+    <section id="emocional">
+      <h2>Apoyo emocional y autocuidado</h2>
+      <p>El bienestar emocional es esencial. Brindamos recursos de contención, técnicas de autocuidado y orientación profesional.</p>
+      <img src="imagenes/autocuidado.jpg" alt="Apoyo emocional y autocuidado" />
+      <ul>
+        <li><i class="fas fa-brain"></i> Terapia y contención emocional</li>
+        <li><i class="fas fa-spa"></i> Gestión del estrés y ansiedad</li>
+        <li><i class="fas fa-leaf"></i> Técnicas de autocuidado físico y mental</li>
+        <li><i class="fas fa-users"></i> Red de apoyo y acompañamiento profesional</li>
+      </ul>
+    </section>
+
+    <section id="aborto">
+      <h2>Aborto seguro</h2>
+      <p>Información sobre derechos, métodos seguros y acompañamiento según la OMS.</p>
+
+      <h3>¿Cómo funciona el acompañamiento?</h3>
+      <ol>
+        <li><i class="fas fa-comments"></i> <strong>Consulta inicial:</strong> Contacto vía WhatsApp o formulario.</li>
+        <li><i class="fas fa-user-md"></i> <strong>Evaluación profesional:</strong> Revisión confidencial por un médico certificado.</li>
+        <li><i class="fas fa-pills"></i> <strong>Entrega del medicamento:</strong> Instrucciones claras y seguras.</li>
+        <li><i class="fas fa-hands-helping"></i> <strong>Seguimiento y apoyo:</strong> Acompañamiento durante todo el proceso.</li>
+      </ol>
+      <p>Más del <strong>95 %</strong> de los casos culminan sin complicaciones siguiendo el protocolo médico.</p>
+
+      <h3>Uso de Misoprostol (Cytotec)</h3>
+      <p>El misoprostol es un medicamento utilizado en ginecología y obstetricia. Su uso debe ser supervisado por profesionales de la salud.</p>
+      <img id="sliderImg" src="imagenes/miso02.jpg" alt="Imagen Misoprostol" />
+      <ul>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://iris.who.int/bitstream/handle/10665/134747/9789243548715_spa.pdf" target="_blank">OMS: Aborto seguro</a></li>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://uchile.cl/noticias/110763/aborto-informarse-sobre-el-misoprostol-puede-salvar-vida-de-mujeres" target="_blank">U. de Chile: Informarse sobre Misoprostol</a></li>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://www.ispch.cl/sites/default/files/alumbra_25mcg.pdf" target="_blank">ISP Chile: Monografía clínica sobre misoprostol</a></li>
+      </ul>
+    </section>
+
     <footer id="contacto">
       <p>💌 Contáctanos</p>
       <p>Asesoría Nosotras © 2025</p>
@@ -285,5 +361,6 @@
 </script>
 </body>
 </html>
+
 
 
