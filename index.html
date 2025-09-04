@@ -186,19 +186,19 @@
     footer { background:#222; color:white; padding:30px 20px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
 
     /* --- BOTON HAMBURGUESA --- */
-    .menu-btn { 
-      position: fixed; 
-      top:15px; left:15px; 
-      font-size:2rem; 
-      background:#e4405f; 
-      color:white; 
-      border:none; 
-      cursor:pointer; 
-      border-radius:5px; 
-      padding:5px 10px; 
-      z-index:1101; 
-      transition:0.3s; 
-    }
+   .menu-btn { 
+  position: fixed; 
+  top:15px; left:15px; 
+  font-size:2rem; 
+  background:#e4405f; 
+  color:white; 
+  border:none; 
+  cursor:pointer; 
+  border-radius:5px; 
+  padding:5px 10px; 
+  z-index:1101; 
+  transition:0.3s; 
+}
 
     .menu-btn.hidden { display: none; }
 
@@ -352,16 +352,13 @@
 
   menuBtn.addEventListener('click', () => {
     if (window.innerWidth <= 600) {
-      // Oculta el botón de inmediato en móvil
-      menuBtn.classList.add('hidden');
+      menuBtn.classList.add('hidden'); // Oculta de inmediato
     }
 
-    // Ahora muestra el menú
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
   });
 
-  // Cerrar menú al tocar el fondo oscuro
   overlay.addEventListener('click', () => {
     sidebar.classList.remove('active');
     overlay.classList.remove('active');
@@ -371,7 +368,6 @@
     }
   });
 
-  // Cerrar menú al tocar cualquier enlace
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
       sidebar.classList.remove('active');
@@ -383,3 +379,4 @@
     });
   });
 </script>
+
