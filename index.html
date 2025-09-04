@@ -351,31 +351,34 @@
   const menuLinks = sidebar.querySelectorAll('a');
 
   menuBtn.addEventListener('click', () => {
-    const isActive = sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-
-    // Solo ocultar botón hamburguesa si estamos en móvil
     if (window.innerWidth <= 600) {
-      menuBtn.classList.toggle('hidden', isActive); // ocultar si se abre
+      // Oculta el botón de inmediato en móvil
+      menuBtn.classList.add('hidden');
     }
+
+    // Ahora muestra el menú
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
   });
 
+  // Cerrar menú al tocar el fondo oscuro
   overlay.addEventListener('click', () => {
     sidebar.classList.remove('active');
     overlay.classList.remove('active');
 
     if (window.innerWidth <= 600) {
-      menuBtn.classList.remove('hidden'); // mostrar nuevamente
+      menuBtn.classList.remove('hidden');
     }
   });
 
+  // Cerrar menú al tocar cualquier enlace
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
 
       if (window.innerWidth <= 600) {
-        menuBtn.classList.remove('hidden'); // mostrar nuevamente
+        menuBtn.classList.remove('hidden');
       }
     });
   });
