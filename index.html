@@ -345,30 +345,38 @@
   </a>
 
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const menuLinks = sidebar.querySelectorAll('a');
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const menuLinks = sidebar.querySelectorAll('a');
 
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-      if(window.innerWidth <= 600){ menuBtn.classList.toggle('hidden'); } // solo en móvil
-    });
+  menuBtn.addEventListener('click', () => {
+    const isActive = sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
 
-    overlay.addEventListener('click', () => {
+    // Solo ocultar botón hamburguesa si estamos en móvil
+    if (window.innerWidth <= 600) {
+      menuBtn.classList.toggle('hidden', isActive); // ocultar si se abre
+    }
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+
+    if (window.innerWidth <= 600) {
+      menuBtn.classList.remove('hidden'); // mostrar nuevamente
+    }
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
-      menuBtn.classList.remove('hidden');
-    });
 
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        menuBtn.classList.remove('hidden');
-      });
+      if (window.innerWidth <= 600) {
+        menuBtn.classList.remove('hidden'); // mostrar nuevamente
+      }
     });
-  </script>
-</body>
-</html>
+  });
+</script>
