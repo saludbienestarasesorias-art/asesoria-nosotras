@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💖 Asesoría Nosotras - Salud y Bienestar Femenino</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: url('imagenes/saludmujer.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .content {
+      background: rgba(0,0,0,0.35);
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    /* --- NAV LATERAL --- */
+    nav {
+      width: 220px;
+      height: 100%;
+      background: rgba(228,64,95,0.95);
+      color: white;
+      position: fixed;
+      top: 0;
+      left: -220px; /* oculto por defecto */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 1000;
+      transition: left 0.3s ease;
+    }
+    nav.active { left: 0; }
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      margin: 10px 0; 
+      font-weight: bold; 
+      font-size: 0.9rem;
+    }
+    nav a:hover { color: #ffd6e0; margin-left: 5px; }
+    .menu-title { font-size:1.2rem; margin-bottom:12px; font-weight:bold; border-bottom:2px solid white; padding-bottom:6px; width:100%; }
+
+    /* FONDO OSCURO CUANDO SE ABRE */
+    .overlay { 
+      position:fixed; 
+      top:0; left:0; 
+      width:100%; height:100%; 
+      background: rgba(0,0,0,0.4); 
+      display:none; 
+      z-index: 900; 
+    }
+    .overlay.active { display:block; }
+
+    /* --- HEADER --- */
+    header { 
+      position: relative; 
+      color:white; 
+      padding:100px 20px 40px 20px; 
+      text-align:center; 
+      background:transparent;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.5); 
+      z-index:0;
+    }
+    header h1, header p {
+      position: relative;
+      z-index:1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    header h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin:0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
+    header p { font-size: clamp(0.85rem, 3vw, 1rem); margin:10px 0 12px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+
+    .lead-in {
+      text-align: center;
+      font-size: clamp(0.8rem, 3vw, 0.95rem);
+      margin: 0 0 20px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+
+    .separator {
+      text-align: center;
+      margin: 10px 0;
+      color: #ff497a;
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards 0.7s;
+    }
+
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* --- SECCIONES --- */
+    section { 
+      padding:30px 15px;
+      text-align:justify;
+      animation: fadeUp 1s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      background: rgba(0,0,0,0.45);
+      border-radius: 12px;
+      margin: 18px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    section h2 { 
+      position: relative;
+      margin-bottom: 12px; 
+      color:#ff6b95; 
+      font-size:1.3rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      text-align:center;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: rgba(255,255,255,0.5);
+      margin: 6px auto 0;
+      border-radius: 2px;
+    }
+
+    section p, section li a { 
+      max-width:700px; 
+      margin:auto; 
+      line-height:1.4; 
+      color:white; 
+      text-decoration:none; 
+      font-size:0.85rem;
+      text-align: justify;
+    }
+
+    section ul, section ol { padding-left:0; margin:12px 0; list-style:none; }
+    section li { margin:6px 0; display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; }
+    section li i { color:#ff6b95; min-width:18px; margin-top:2px; font-size:0.8rem; }
+
+    section img {
+      width: 100%;
+      max-width: 350px;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+      margin: 12px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      loading: lazy;
+    }
+
+    #ciclo img {
+      max-width: 350px;
+      max-height: 220px;
+      object-fit: contain;
+    }
+
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+    footer { background:#222; color:white; padding:20px 15px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
+
+    /* --- BOTON HAMBURGUESA --- */
+    .menu-btn { 
+      position: fixed; 
+      top:15px; left:15px; 
+      font-size:1.8rem; 
+      background:#e4405f; 
+      color:white; 
+      border:none; 
+      cursor:pointer; 
+      border-radius:5px; 
+      padding:6px 10px; 
+      z-index:1101; 
+      transition:0.3s; 
+    }
+    .menu-btn.hidden { display: none; }
+
+    /* --- BOTONES SOCIALES --- */
+    .social-buttons { position: fixed; right:20px; bottom:100px; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1000; }
+    .social-buttons a { display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; color:white; font-size:16px; text-decoration:none; background: rgba(0,0,0,0.5); box-shadow:0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s ease, background 0.3s; }
+    .social-buttons a:hover { transform:scale(1.1); background:#ff497a; }
+    .btn-fb { background:#1877f2; }
+    .btn-ig { background:#e1306c; }
+    .btn-li { background:#0077b5; }
+    .btn-gmail { background:#ea4335; }
+
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 26px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; text-decoration: none; z-index:1102; transition: transform 0.3s ease; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    /* --- MEDIA QUERIES --- */
+    @media(max-width:600px){
+      header h1 { font-size: 1.5rem; }
+      header p { font-size: 0.8rem; }
+      .lead-in { font-size: 0.8rem; margin-bottom: 15px; }
+      
+      section {
+        padding: 20px 12px;
+        font-size: 0.8rem;
+      }
+      section h2 { font-size: 1.1rem; }
+      section p, section li { font-size: 0.78rem; }
+      section img { max-width: 280px; max-height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <button id="menuBtn" class="menu-btn">☰</button>
+
+  <nav id="sidebar">
+    <h2 class="menu-title">Nosotras</h2>
+    <a href="#inicio">Inicio</a>
+    <a href="#anticonceptivos">Anticonceptivos</a>
+    <a href="#ciclo">Ciclo menstrual</a>
+    <a href="#sexualidad">Salud sexual</a>
+    <a href="#emocional">Apoyo emocional</a>
+    <a href="#aborto">Aborto seguro</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div id="overlay" class="overlay"></div>
+
+  <div class="content">
+    <header id="inicio">
+      <h1>Asesoría Nosotras</h1>
+      <p>Información y acompañamiento sobre anticonceptivos, ciclos menstruales y salud femenina integral.</p>
+      <p class="lead-in">Explora recursos confiables y orientación para tu bienestar.</p>
+      <div class="separator"><i class="fas fa-heart"></i></div>
+    </header>
+
+    <section id="anticonceptivos">
+      <h2>Métodos anticonceptivos</h2>
+      <p>Como profesionales en salud femenina, te explicamos todas las opciones: pastillas, DIU, implantes, condones, métodos naturales y más. Cada método tiene indicaciones específicas según tu salud y necesidades.</p>
+      <img src="imagenes/metodos.jpg" alt="Métodos anticonceptivos" />
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Pastillas hormonales y combinadas</li>
+        <li><i class="fas fa-check-circle"></i> DIU de cobre y hormonal</li>
+        <li><i class="fas fa-check-circle"></i> Implantes subdérmicos</li>
+        <li><i class="fas fa-check-circle"></i> Condones masculinos y femeninos</li>
+        <li><i class="fas fa-check-circle"></i> Métodos naturales y planificación familiar consciente</li>
+      </ul>
+    </section>
+
+    <section id="ciclo">
+      <h2>Ciclo menstrual</h2>
+      <p>Comprender tu ciclo es clave para tu bienestar. Identifica fases, signos de alerta y cómo cuidarte en cada etapa.</p>
+      <img src="imagenes/ciclo.jpg" alt="Ciclo menstrual" />
+      <ul>
+        <li><i class="fas fa-dot-circle"></i> Fase folicular: preparación del cuerpo para la ovulación</li>
+        <li><i class="fas fa-dot-circle"></i> Ovulación: momento de fertilidad máxima</li>
+        <li><i class="fas fa-dot-circle"></i> Fase lútea: preparación del endometrio y cambios hormonales</li>
+        <li><i class="fas fa-dot-circle"></i> Manejo de síntomas: dolor, cambios emocionales y flujo</li>
+      </ul>
+    </section>
+
+    <section id="sexualidad">
+      <h2>Salud sexual y reproductiva</h2>
+      <p>Promovemos prácticas seguras, prevención de ITS y planificación familiar según recomendaciones médicas.</p>
+      <img src="imagenes/saludsexual.jpg" alt="Salud sexual y reproductiva" />
+      <ul>
+        <li><i class="fas fa-shield-alt"></i> Prevención y diagnóstico de ITS</li>
+        <li><i class="fas fa-stethoscope"></i> Chequeos ginecológicos periódicos</li>
+        <li><i class="fas fa-book-reader"></i> Educación sexual integral</li>
+        <li><i class="fas fa-heart"></i> Planificación familiar y métodos anticonceptivos</li>
+      </ul>
+    </section>
+
+    <section id="emocional">
+      <h2>Apoyo emocional y autocuidado</h2>
+      <p>El bienestar emocional es esencial. Brindamos recursos de contención, técnicas de autocuidado y orientación profesional.</p>
+      <img src="imagenes/autocuidado.jpg" alt="Apoyo emocional y autocuidado" />
+      <ul>
+        <li><i class="fas fa-brain"></i> Terapia y contención emocional</li>
+        <li><i class="fas fa-spa"></i> Gestión del estrés y ansiedad</li>
+        <li><i class="fas fa-leaf"></i> Técnicas de autocuidado físico y mental</li>
+        <li><i class="fas fa-users"></i> Red de apoyo y acompañamiento profesional</li>
+      </ul>
+    </section>
+
+    <section id="aborto">
+      <h2>Aborto seguro</h2>
+      <p>Información sobre derechos, métodos seguros y acompañamiento según la OMS.</p>
+      <h3>¿Cómo funciona el acompañamiento?</h3>
+      <ol>
+        <li><i class="fas fa-comments"></i> <strong>Consulta inicial:</strong> Contacto vía WhatsApp o formulario.</li>
+        <li><i class="fas fa-user-md"></i> <strong>Evaluación profesional:</strong> Revisión confidencial por un médico certificado.</li>
+        <li><i class="fas fa-pills"></i> <strong>Entrega del medicamento:</strong> Instrucciones claras y seguras.</li>
+        <li><i class="fas fa-hands-helping"></i> <strong>Seguimiento y apoyo:</strong> Acompañamiento durante todo el proceso.</li>
+      </ol>
+      <p>Más del <strong>95 %</strong> de los casos culminan sin complicaciones siguiendo el protocolo médico.</p>
+      <h3>Uso de Misoprostol (Cytotec)</h3>
+      <p>El misoprostol es un medicamento utilizado en ginecología y obstetricia. Su uso debe ser supervisado por profesionales de la salud.</p>
+      <img id="sliderImg" src="imagenes/miso02.jpg" alt="Imagen Misoprostol" />
+      <ul>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://iris.who.int/bitstream/handle/10665/134747/9789243548715_spa.pdf" target="_blank">OMS: Aborto seguro</a></li>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://uchile.cl/noticias/110763/aborto-informarse-sobre-el-misoprostol-puede-salvar-vida-de-mujeres" target="_blank">U. de Chile: Informarse sobre Misoprostol</a></li>
+        <li><i class="fas fa-file-pdf"></i> <a href="https://www.ispch.cl/sites/default/files/alumbra_25mcg.pdf" target="_blank">ISP Chile: Monografía clínica sobre misoprostol</a></li>
+      </ul>
+    </section>
+
+    <footer id="contacto">
+      <p>💌 Contáctanos</p>
+      <p>Asesoría Nosotras © 2025</p>
+    </footer>
+  </div>
+
+  <div class="social-buttons">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=salud.bienestar.asesorias@gmail.com" target="_blank" class="btn-gmail" title="Abrir Gmail"><i class="fas fa-paper-plane"></i></a>
+    <a href="https://www.facebook.com/share/1E5NG9qF6Q/?mibextid=wwXIfr" target="_blank" class="btn-fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/saludybienestarasesorias?igsh=MWo3ZWRzcmt4NWlp&utm_source=qr" target="_blank" class="btn-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/asesoria-salud-y-bienestar-889001381" target="_blank" class="btn-li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+
+  <a href="https://wa.me/56959006839" target="_blank" class="whatsapp-float" title="Chatea con nosotras"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      menuBtn.classList.add('hidden'); // ocultar hamburguesa
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      menuBtn.classList.remove('hidden'); // mostrar hamburguesa
+    });
+
+    // cerrar menú al hacer click en un enlace
+    document.querySelectorAll('#sidebar a').forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        menuBtn.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
