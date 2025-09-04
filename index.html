@@ -18,7 +18,6 @@
     .content {
       background: rgba(0,0,0,0.35);
       min-height: 100vh;
-      color: white;
       padding-bottom: 50px;
     }
 
@@ -42,12 +41,12 @@
     nav a { 
       color: white; 
       text-decoration: none; 
-      margin: 12px 0; 
+      margin: 10px 0; 
       font-weight: bold; 
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     nav a:hover { color: #ffd6e0; margin-left: 5px; }
-    .menu-title { font-size:1.3rem; margin-bottom:15px; font-weight:bold; border-bottom:2px solid white; padding-bottom:8px; width:100%; }
+    .menu-title { font-size:1.2rem; margin-bottom:12px; font-weight:bold; border-bottom:2px solid white; padding-bottom:6px; width:100%; }
 
     /* FONDO OSCURO CUANDO SE ABRE */
     .overlay { 
@@ -64,7 +63,7 @@
     header { 
       position: relative; 
       color:white; 
-      padding:120px 20px 60px 20px; 
+      padding:100px 20px 40px 20px; 
       text-align:center; 
       background:transparent;
       overflow: hidden;
@@ -84,15 +83,13 @@
       transform: translateY(20px);
       animation: fadeInUp 1s forwards;
     }
-    header h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin:0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
-    header p { font-size: clamp(0.85rem, 3vw, 1rem); margin:10px 0 15px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+    header h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin:0; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
+    header p { font-size: clamp(0.85rem, 3vw, 1rem); margin:10px 0 12px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
 
     .lead-in {
       text-align: center;
-      color: #fff;
-      font-size: clamp(0.85rem, 3vw, 1rem);
-      margin: 0 0 30px 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      font-size: clamp(0.8rem, 3vw, 0.95rem);
+      margin: 0 0 20px 0;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s forwards 0.5s;
@@ -100,9 +97,9 @@
 
     .separator {
       text-align: center;
-      margin: 15px 0;
+      margin: 10px 0;
       color: #ff497a;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s forwards 0.7s;
@@ -112,121 +109,116 @@
 
     /* --- SECCIONES --- */
     section { 
-      padding:50px 20px;
+      padding:30px 15px;
       text-align:justify;
       animation: fadeUp 1s forwards;
       opacity: 0;
       transform: translateY(20px);
       background: rgba(0,0,0,0.45);
-      border-radius: 15px;
-      margin: 25px auto;
+      border-radius: 12px;
+      margin: 18px auto;
       max-width: 900px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     section h2 { 
       position: relative;
-      margin-bottom: 15px; 
+      margin-bottom: 12px; 
       color:#ff6b95; 
-      font-size:1.6rem;
+      font-size:1.3rem;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
       text-align:center;
     }
     section h2::after {
       content: "";
       display: block;
-      width: 60px;
+      width: 50px;
       height: 3px;
       background: rgba(255,255,255,0.5);
-      margin: 8px auto 0;
+      margin: 6px auto 0;
       border-radius: 2px;
     }
 
     section p, section li a { 
       max-width:700px; 
       margin:auto; 
-      line-height:1.6; 
+      line-height:1.4; 
       color:white; 
       text-decoration:none; 
-      font-size:0.9rem;
+      font-size:0.85rem;
       text-align: justify;
     }
 
-    section ul, section ol { padding-left:0; margin:20px 0; list-style:none; }
-    section li { margin:10px 0; display:flex; align-items:flex-start; gap:10px; font-size:0.95rem; }
-    section li i { color:#ff6b95; min-width:20px; margin-top:3px; }
+    section ul, section ol { padding-left:0; margin:12px 0; list-style:none; }
+    section li { margin:6px 0; display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; }
+    section li i { color:#ff6b95; min-width:18px; margin-top:2px; font-size:0.8rem; }
 
     section img {
-      width: 450px;
-      height: 300px;
+      width: 100%;
+      max-width: 350px;
+      max-height: 220px;
       object-fit: cover;
-      object-position: top;
       display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+      margin: 12px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       loading: lazy;
     }
 
     #ciclo img {
-      width: 100%;
-      max-width: 450px;
-      height: auto;
+      max-width: 350px;
+      max-height: 220px;
       object-fit: contain;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
     }
 
     @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 
-    footer { background:#222; color:white; padding:30px 20px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
+    footer { background:#222; color:white; padding:20px 15px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
 
     /* --- BOTON HAMBURGUESA --- */
-   .menu-btn { 
-  position: fixed; 
-  top:15px; left:15px; 
-  font-size:2rem; 
-  background:#e4405f; 
-  color:white; 
-  border:none; 
-  cursor:pointer; 
-  border-radius:5px; 
-  padding:5px 10px; 
-  z-index:1101; 
-  transition:0.3s; 
-}
-
+    .menu-btn { 
+      position: fixed; 
+      top:15px; left:15px; 
+      font-size:1.8rem; 
+      background:#e4405f; 
+      color:white; 
+      border:none; 
+      cursor:pointer; 
+      border-radius:5px; 
+      padding:6px 10px; 
+      z-index:1101; 
+      transition:0.3s; 
+    }
     .menu-btn.hidden { display: none; }
 
     /* --- BOTONES SOCIALES --- */
-    .social-buttons { position: fixed; right:20px; bottom:120px; display:flex; flex-direction:column; align-items:center; gap:12px; z-index:1000; }
-    .social-buttons a { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; color:white; font-size:18px; text-decoration:none; background: rgba(0,0,0,0.5); box-shadow:0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s ease, background 0.3s; }
+    .social-buttons { position: fixed; right:20px; bottom:100px; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1000; }
+    .social-buttons a { display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; color:white; font-size:16px; text-decoration:none; background: rgba(0,0,0,0.5); box-shadow:0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s ease, background 0.3s; }
     .social-buttons a:hover { transform:scale(1.1); background:#ff497a; }
     .btn-fb { background:#1877f2; }
     .btn-ig { background:#e1306c; }
     .btn-li { background:#0077b5; }
     .btn-gmail { background:#ea4335; }
 
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; text-decoration: none; z-index:1102; transition: transform 0.3s ease; }
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 26px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; text-decoration: none; z-index:1102; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
-
-    #aborto { text-align: justify; }
-    #aborto ul, #aborto ol { text-align: left; display: inline-block; }
-    #aborto h3 { margin-top:30px; }
 
     /* --- MEDIA QUERIES --- */
     @media(max-width:600px){
-      header h1 { font-size: clamp(1.5rem, 6vw, 2rem); }
-      header p { font-size: clamp(0.8rem, 3vw, 0.95rem); }
-      section { padding:40px 15px; text-align:justify; font-size:0.85rem; }
-      section li { justify-content:flex-start; text-align:left; font-size:0.85rem; }
-      section img { width: 90%; height:auto; }
+      header h1 { font-size: 1.5rem; }
+      header p { font-size: 0.8rem; }
+      .lead-in { font-size: 0.8rem; margin-bottom: 15px; }
+      
+      section {
+        padding: 20px 12px;
+        font-size: 0.8rem;
+      }
+      section h2 { font-size: 1.1rem; }
+      section p, section li { font-size: 0.78rem; }
+      section img { max-width: 280px; max-height: 180px; }
     }
-
   </style>
 </head>
 <body>
@@ -246,8 +238,6 @@
   <div id="overlay" class="overlay"></div>
 
   <div class="content">
-    <!-- Tu contenido original de header y secciones aquí -->
-    <!-- Mantenido tal cual tu código -->
     <header id="inicio">
       <h1>Asesoría Nosotras</h1>
       <p>Información y acompañamiento sobre anticonceptivos, ciclos menstruales y salud femenina integral.</p>
@@ -307,7 +297,6 @@
     <section id="aborto">
       <h2>Aborto seguro</h2>
       <p>Información sobre derechos, métodos seguros y acompañamiento según la OMS.</p>
-
       <h3>¿Cómo funciona el acompañamiento?</h3>
       <ol>
         <li><i class="fas fa-comments"></i> <strong>Consulta inicial:</strong> Contacto vía WhatsApp o formulario.</li>
@@ -316,7 +305,6 @@
         <li><i class="fas fa-hands-helping"></i> <strong>Seguimiento y apoyo:</strong> Acompañamiento durante todo el proceso.</li>
       </ol>
       <p>Más del <strong>95 %</strong> de los casos culminan sin complicaciones siguiendo el protocolo médico.</p>
-
       <h3>Uso de Misoprostol (Cytotec)</h3>
       <p>El misoprostol es un medicamento utilizado en ginecología y obstetricia. Su uso debe ser supervisado por profesionales de la salud.</p>
       <img id="sliderImg" src="imagenes/miso02.jpg" alt="Imagen Misoprostol" />
@@ -340,43 +328,34 @@
     <a href="https://www.linkedin.com/in/asesoria-salud-y-bienestar-889001381" target="_blank" class="btn-li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 
-  <a href="https://wa.me/56920765024?text=Hola%20quiero%20más%20información%20sobre%20su%20asesoría" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/56959006839" target="_blank" class="whatsapp-float" title="Chatea con nosotras"><i class="fab fa-whatsapp"></i></a>
 
   <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const menuLinks = sidebar.querySelectorAll('a');
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-  menuBtn.addEventListener('click', () => {
-    if (window.innerWidth <= 600) {
-      menuBtn.classList.add('hidden'); // Oculta de inmediato
-    }
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      menuBtn.classList.add('hidden'); // ocultar hamburguesa
+    });
 
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-  });
-
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-
-    if (window.innerWidth <= 600) {
-      menuBtn.classList.remove('hidden');
-    }
-  });
-
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    overlay.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
-
-      if (window.innerWidth <= 600) {
-        menuBtn.classList.remove('hidden');
-      }
+      menuBtn.classList.remove('hidden'); // mostrar hamburguesa
     });
-  });
-</script>
+
+    // cerrar menú al hacer click en un enlace
+    document.querySelectorAll('#sidebar a').forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        menuBtn.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
 
