@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: url('./imagenes/saludmujer.jpg') no-repeat center center fixed;
+      background: url('/imagenes/saludmujer.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       line-height: 1.6;
@@ -29,7 +29,7 @@
       color: white;
       position: fixed;
       top: 0;
-      left: -250px; /* oculto por defecto */
+      left: -250px;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -48,7 +48,6 @@
     nav a:hover { color: #ffd6e0; margin-left: 5px; }
     .menu-title { font-size:1.2rem; margin-bottom:12px; font-weight:bold; border-bottom:2px solid white; padding-bottom:6px; width:100%; }
 
-    /* FONDO OSCURO CUANDO SE ABRE */
     .overlay { 
       position:fixed; 
       top:0; left:0; 
@@ -107,7 +106,6 @@
 
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* --- SECCIONES --- */
     section { 
       padding:30px 15px;
       text-align:justify;
@@ -177,7 +175,7 @@
 
     footer { background:#222; color:white; padding:20px 15px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
 
-    /* --- BOTON HAMBURGUESA ESTILO YOUTUBE --- */
+    /* --- BOTÓN HAMBURGUESA ESTILO YOUTUBE --- */
     .menu-btn {
       position: fixed;
       top: 15px;
@@ -226,21 +224,15 @@
       header h1 { font-size: 1.5rem; }
       header p { font-size: 0.8rem; }
       .lead-in { font-size: 0.8rem; margin-bottom: 15px; }
-      
-      section {
-        padding: 20px 12px;
-        font-size: 0.8rem;
-      }
+      section { padding: 20px 12px; font-size: 0.8rem; }
       section h2 { font-size: 1.1rem; }
-      section p, section li { font-size: 0.78rem; }
+      section p, section li { font-size:0.78rem; }
       section img { max-width: 280px; max-height: 180px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- BOTÓN HAMBURGUESA ESTILO YOUTUBE -->
-  <button id="menuBtn" class="menu-btn" aria-label="Menú" aria-pressed="false">
+  <button id="menuBtn" class="menu-btn">
     <span></span>
     <span></span>
     <span></span>
@@ -260,13 +252,13 @@
   <div id="overlay" class="overlay"></div>
 
   <div class="content">
-    <!-- tu contenido original se mantiene tal cual -->
+    <!-- contenido de tu página -->
   </div>
 
   <div class="social-buttons">
-    <a href="mailto:salud.bienestar.asesorias@gmail.com" target="_blank" class="btn-gmail" title="Abrir Gmail"><i class="fas fa-paper-plane"></i></a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=salud.bienestar.asesorias@gmail.com" target="_blank" class="btn-gmail" title="Abrir Gmail"><i class="fas fa-paper-plane"></i></a>
     <a href="https://www.facebook.com/share/1E5NG9qF6Q/?mibextid=wwXIfr" target="_blank" class="btn-fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/saludybienestarasesorias" target="_blank" class="btn-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/saludybienestarasesorias?igsh=MWo3ZWRzcmt4NWlp&utm_source=qr" target="_blank" class="btn-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/asesoria-salud-y-bienestar-889001381" target="_blank" class="btn-li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 
@@ -278,17 +270,15 @@
     const overlay = document.getElementById('overlay');
 
     menuBtn.addEventListener('click', () => {
-      const isOpen = sidebar.classList.toggle('active');
-      overlay.classList.toggle('active', isOpen);
-      menuBtn.classList.toggle('open', isOpen);
-      menuBtn.setAttribute('aria-pressed', isOpen);
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      menuBtn.classList.add('open');
     });
 
     overlay.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
       menuBtn.classList.remove('open');
-      menuBtn.setAttribute('aria-pressed', false);
     });
 
     document.querySelectorAll('#sidebar a').forEach(link => {
@@ -296,9 +286,9 @@
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
         menuBtn.classList.remove('open');
-        menuBtn.setAttribute('aria-pressed', false);
       });
     });
   </script>
 </body>
 </html>
+
