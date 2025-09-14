@@ -177,20 +177,37 @@
 
     footer { background:#222; color:white; padding:20px 15px; text-align:center; border-radius: 10px; margin: 20px auto; max-width: 900px; }
 
-    /* --- BOTON HAMBURGUESA --- */
-    .menu-btn { 
-      position: fixed; 
-      top:15px; left:15px; 
-      font-size:1.8rem; 
-      background:#e4405f; 
-      color:white; 
-      border:none; 
-      cursor:pointer; 
-      border-radius:5px; 
-      padding:6px 10px; 
-      z-index:1101; 
-      transition:0.3s; 
+    /* --- BOTON HAMBURGUESA ESTILO YOUTUBE --- */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 6px;
+      background: #e4405f;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      z-index: 1101;
     }
+
+    .menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.open span:nth-child(2) { opacity: 0; }
+    .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
     /* --- BOTONES SOCIALES --- */
     .social-buttons { position: fixed; right:20px; bottom:100px; display:flex; flex-direction:column; align-items:center; gap:10px; z-index:1000; }
@@ -221,7 +238,13 @@
   </style>
 </head>
 <body>
-  <button id="menuBtn" class="menu-btn">☰</button>
+
+  <!-- BOTÓN HAMBURGUESA ESTILO YOUTUBE -->
+  <button id="menuBtn" class="menu-btn" aria-label="Menú" aria-pressed="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
   <nav id="sidebar">
     <h2 class="menu-title">Nosotras</h2>
@@ -238,13 +261,12 @@
 
   <div class="content">
     <!-- tu contenido original se mantiene tal cual -->
-    <!-- ... (SECCIONES, HEADER, FOOTER, ETC.) ... -->
   </div>
 
   <div class="social-buttons">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=salud.bienestar.asesorias@gmail.com" target="_blank" class="btn-gmail" title="Abrir Gmail"><i class="fas fa-paper-plane"></i></a>
+    <a href="mailto:salud.bienestar.asesorias@gmail.com" target="_blank" class="btn-gmail" title="Abrir Gmail"><i class="fas fa-paper-plane"></i></a>
     <a href="https://www.facebook.com/share/1E5NG9qF6Q/?mibextid=wwXIfr" target="_blank" class="btn-fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/saludybienestarasesorias?igsh=MWo3ZWRzcmt4NWlp&utm_source=qr" target="_blank" class="btn-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/saludybienestarasesorias" target="_blank" class="btn-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/asesoria-salud-y-bienestar-889001381" target="_blank" class="btn-li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
   </div>
 
@@ -256,41 +278,27 @@
     const overlay = document.getElementById('overlay');
 
     menuBtn.addEventListener('click', () => {
-      sidebar.classList.add('active');
-      overlay.classList.add('active');
-      menuBtn.style.display = "none"; // ocultar hamburguesa
+      const isOpen = sidebar.classList.toggle('active');
+      overlay.classList.toggle('active', isOpen);
+      menuBtn.classList.toggle('open', isOpen);
+      menuBtn.setAttribute('aria-pressed', isOpen);
     });
 
     overlay.addEventListener('click', () => {
       sidebar.classList.remove('active');
       overlay.classList.remove('active');
-      menuBtn.style.display = "block"; // mostrar hamburguesa
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-pressed', false);
     });
 
-    // cerrar menú al hacer click en un enlace
     document.querySelectorAll('#sidebar a').forEach(link => {
       link.addEventListener('click', () => {
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
-        menuBtn.style.display = "block";
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-pressed', false);
       });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
